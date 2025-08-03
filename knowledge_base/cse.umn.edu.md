@@ -283,5 +283,3 @@ Minneapolis, MN 55455
 [See All Events](https://cse.umn.edu/college/events)
 Back to top
 [Close menu](https://cse.umn.edu/#mm-0)
-|   
----|---
