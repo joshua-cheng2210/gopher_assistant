@@ -1,144 +1,68 @@
-http://admissions.tc.umn.edu/apply/index.html
-http://admissions.tc.umn.edu/visit/index.html
-http://advisingblog.cse.umn.edu
-http://campusmaps.umn.edu
-http://umn.force.com/admissions/TCAdmissionsRFISignUpForm
-https://campusmaps.umn.edu/kenneth-h-keller-hall
-https://cse.umn.edu
-https://cse.umn.edu/DI-opportunities
-https://cse.umn.edu/alliance
-https://cse.umn.edu/andersonlabs
-https://cse.umn.edu/college
-https://cse.umn.edu/college/about-college-science-and-engineering
-https://cse.umn.edu/college/academic-advising
-https://cse.umn.edu/college/academic-advising/academic-support
-https://cse.umn.edu/college/academic-advising/appointments-and-drop-ins
-https://cse.umn.edu/college/academic-advising/cse-academic-advising-faq
-https://cse.umn.edu/college/academic-advising/honors-advising
-https://cse.umn.edu/college/academic-advising/policies-procedures-and-forms
-https://cse.umn.edu/college/administrative-offices
-https://cse.umn.edu/college/administrative-offices/communications-and-marketing-office
-https://cse.umn.edu/college/administrative-offices/external-relations-office
-https://cse.umn.edu/college/administrative-offices/finance-and-operations-office
-https://cse.umn.edu/college/administrative-offices/human-resources-office
-https://cse.umn.edu/college/administrative-offices/office-associate-dean-academic-affairs
-https://cse.umn.edu/college/administrative-offices/office-associate-dean-research
-https://cse.umn.edu/college/administrative-offices/office-associate-dean-undergraduate-programs
-https://cse.umn.edu/college/administrative-offices/office-dean
-https://cse.umn.edu/college/alumni
-https://cse.umn.edu/college/alumni/alumni-awards-and-honors
-https://cse.umn.edu/college/alumni/alumni-news
-https://cse.umn.edu/college/alumni/alumni-resources
-https://cse.umn.edu/college/alumni/alumni-service-awards
-https://cse.umn.edu/college/alumni/alumni-volunteer-interest-form
-https://cse.umn.edu/college/alumni/career-resources-alumni
-https://cse.umn.edu/college/alumni/cse-50-year-reunion
-https://cse.umn.edu/college/alumni/cse-golden-medallion-society-reunion
-https://cse.umn.edu/college/alumni/cse-mentor-program
-https://cse.umn.edu/college/alumni/distinguished-leadership-award-internationals
-https://cse.umn.edu/college/alumni/get-engaged-cse
-https://cse.umn.edu/college/alumni/honorary-degree
-https://cse.umn.edu/college/alumni/nobel-laureates
-https://cse.umn.edu/college/alumni/outstanding-achievement-award
-https://cse.umn.edu/college/alumni/upcoming-alumni-events
-https://cse.umn.edu/college/alumni/update-your-contact-info
-https://cse.umn.edu/college/award-winning-cse-faculty
-https://cse.umn.edu/college/career-center
-https://cse.umn.edu/college/career/jobs-and-internships
-https://cse.umn.edu/college/collegiate-life
-https://cse.umn.edu/college/collegiate-life/living-learning-communities
-https://cse.umn.edu/college/collegiate-life/mentor-programs
-https://cse.umn.edu/college/collegiate-life/programs-women
-https://cse.umn.edu/college/collegiate-life/scholarships
-https://cse.umn.edu/college/collegiate-life/student-groups
-https://cse.umn.edu/college/collegiate-life/undergraduate-research
-https://cse.umn.edu/college/corporate-sponsorship-dei-programming
-https://cse.umn.edu/college/corporate-sponsorship-precollege-career-readiness
-https://cse.umn.edu/college/corporate/become-research-partner
-https://cse.umn.edu/college/corporate/corporate-k-12-outreach-initiatives
-https://cse.umn.edu/college/corporate/cse-corporate-relations
-https://cse.umn.edu/college/cse-alumni-society-board
-https://cse.umn.edu/college/cse-career-fair
-https://cse.umn.edu/college/cse-committees
-https://cse.umn.edu/college/cse-corporate-and-foundation-relations
-https://cse.umn.edu/college/cse-directories
-https://cse.umn.edu/college/cse-performance-management-process
-https://cse.umn.edu/college/cse-policies
-https://cse.umn.edu/college/cse-shop
-https://cse.umn.edu/college/cse-undergraduate-commencement-ceremony
-https://cse.umn.edu/college/cse-webcam
-https://cse.umn.edu/college/current-students
-https://cse.umn.edu/college/departments
-https://cse.umn.edu/college/departments-and-majors
-https://cse.umn.edu/college/departments-and-majors/additional-degree-granting-programs
-https://cse.umn.edu/college/departments-and-majors/graduate-programs
-https://cse.umn.edu/college/departments-and-majors/online-learning
-https://cse.umn.edu/college/departments-and-majors/undergraduate-majors
-https://cse.umn.edu/college/events
-https://cse.umn.edu/college/events/2025-cellular-bioprocess-technology-short-course
-https://cse.umn.edu/college/events/cse-summer-social
-https://cse.umn.edu/college/events/iem-manuscript-writing-workshop-fall-2025
-https://cse.umn.edu/college/faculty-and-staff
-https://cse.umn.edu/college/faculty-and-staff/award-winning-cse-faculty
-https://cse.umn.edu/college/faculty-and-staff/collegiate-awards
-https://cse.umn.edu/college/faculty-and-staff/cse-directories
-https://cse.umn.edu/college/faculty-and-staff/honorary-professorships
-https://cse.umn.edu/college/faculty-and-staff/honors-and-awards
-https://cse.umn.edu/college/faculty-and-staff/national-academies
-https://cse.umn.edu/college/faculty-and-staff/university-wide-awards-teaching-advising-and-service
-https://cse.umn.edu/college/four-year-plans
-https://cse.umn.edu/college/future-students/future-graduate-students
-https://cse.umn.edu/college/future-students/future-international-students
-https://cse.umn.edu/college/future-students/information-future-students
-https://cse.umn.edu/college/give-cse
-https://cse.umn.edu/college/giving/deansclub
-https://cse.umn.edu/college/giving/donor-stories
-https://cse.umn.edu/college/giving/giving-priorities
-https://cse.umn.edu/college/giving/impact-giving
-https://cse.umn.edu/college/giving/ways-give
-https://cse.umn.edu/college/giving/why-give-cse
-https://cse.umn.edu/college/graduate-school
-https://cse.umn.edu/college/graduate-student-resources
-https://cse.umn.edu/college/hello-future-undergrad
-https://cse.umn.edu/college/how-do-i-pay-for-it
-https://cse.umn.edu/college/integrated-degree-programs
-https://cse.umn.edu/college/interviews-and-job-offers
-https://cse.umn.edu/college/k-12-outreach
-https://cse.umn.edu/college/k-12-outreach/cse-k-12-virtual-classroom-resources
-https://cse.umn.edu/college/k-12-outreach/educator-development
-https://cse.umn.edu/college/k-12-outreach/enrichment-programs
-https://cse.umn.edu/college/k-12-outreach/field-trips
-https://cse.umn.edu/college/k-12-outreach/outreach-events
-https://cse.umn.edu/college/k-12-outreach/summer-camps
-https://cse.umn.edu/college/learn-abroad
-https://cse.umn.edu/college/major-and-career-exploration
-https://cse.umn.edu/college/news
-https://cse.umn.edu/college/news/college-science-and-engineering-graduate-programs-receive-high-rankings-us-news-report
-https://cse.umn.edu/college/news/cse-news-feature-stories
-https://cse.umn.edu/college/news/undergrad-leads-smallsat-project-bound-space-station
-https://cse.umn.edu/college/policies/cse-graduate-education-policies-and-procedures
-https://cse.umn.edu/college/policies/research-policies
-https://cse.umn.edu/college/recruit-our-students
-https://cse.umn.edu/college/research
-https://cse.umn.edu/college/research/research-centers-and-facilities
-https://cse.umn.edu/college/research/research-proposal-submission-process
-https://cse.umn.edu/college/research/research-safety
-https://cse.umn.edu/college/research/research-updates
-https://cse.umn.edu/college/transfer-admissions
-https://cse.umn.edu/college/what-makes-place-so-great
-https://cse.umn.edu/college/what-will-i-study
-https://cse.umn.edu/college/who-will-i-hang-out
-https://cse.umn.edu/college/will-i-get-a-job
-https://cse.umn.edu/college/work-flexibility-college-science-and-engineering
-https://cse.umn.edu/cseit
-https://cse.umn.edu/employeerecognition
-https://cse.umn.edu/internationalresources
-https://cse.umn.edu/inventingtomorrow
-https://cse.umn.edu/resumes-and-cover-letters
-https://give.umn.edu/waystogive/matching-gifts
-https://identitystores.com/Stores/StoreFront.aspx?StoreId=3367
-https://makingagift.umn.edu/give/fund.html?ownerCode=O_TCCLG&areaCode=A_CSE1&desc_source=CWXXUMGGIVEW
-https://onestop.umn.edu
-https://twin-cities.umn.edu
-https://twin-cities.umn.edu/news-events/u-m-graduate-programs-excel-latest-us-news-rankings
-https://www.myu.umn.edu
+http://advisingblog.cse.umn.edu --> advisingblog.cse.umn.edu.md
+https://cse.umn.edu --> cse.umn.edu.md
+https://cse.umn.edu/DI-opportunities --> cse.umn.edu_SLASH_DI-opportunities.md
+https://cse.umn.edu/alliance --> cse.umn.edu_SLASH_alliance.md
+https://cse.umn.edu/andersonlabs --> cse.umn.edu_SLASH_andersonlabs.md
+https://cse.umn.edu/college/academic-advising --> cse.umn.edu_SLASH_college_SLASH_academic-advising.md
+https://cse.umn.edu/college/academic-advising/academic-support --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_academic-support.md
+https://cse.umn.edu/college/academic-advising/appointments-and-drop-ins --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_appointments-and-drop-ins.md
+https://cse.umn.edu/college/academic-advising/cse-academic-advising-faq --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_cse-academic-advising-faq.md
+https://cse.umn.edu/college/academic-advising/honors-advising --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_honors-advising.md
+https://cse.umn.edu/college/academic-advising/policies-procedures-and-forms --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_policies-procedures-and-forms.md
+https://cse.umn.edu/college/administrative-offices/external-relations-office --> cse.umn.edu_SLASH_college_SLASH_administrative-offices_SLASH_external-relations-office.md
+https://cse.umn.edu/college/alumni --> cse.umn.edu_SLASH_college_SLASH_alumni.md
+https://cse.umn.edu/college/alumni/alumni-awards-and-honors --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_alumni-awards-and-honors.md
+https://cse.umn.edu/college/alumni/alumni-news --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_alumni-news.md
+https://cse.umn.edu/college/alumni/alumni-resources --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_alumni-resources.md
+https://cse.umn.edu/college/alumni/alumni-service-awards --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_alumni-service-awards.md
+https://cse.umn.edu/college/alumni/alumni-volunteer-interest-form --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_alumni-volunteer-interest-form.md
+https://cse.umn.edu/college/alumni/career-resources-alumni --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_career-resources-alumni.md
+https://cse.umn.edu/college/alumni/cse-50-year-reunion --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_cse-50-year-reunion.md
+https://cse.umn.edu/college/alumni/cse-golden-medallion-society-reunion --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_cse-golden-medallion-society-reunion.md
+https://cse.umn.edu/college/alumni/cse-mentor-program --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_cse-mentor-program.md
+https://cse.umn.edu/college/alumni/distinguished-leadership-award-internationals --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_distinguished-leadership-award-internationals.md
+https://cse.umn.edu/college/alumni/get-engaged-cse --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_get-engaged-cse.md
+https://cse.umn.edu/college/alumni/honorary-degree --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_honorary-degree.md
+https://cse.umn.edu/college/alumni/nobel-laureates --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_nobel-laureates.md
+https://cse.umn.edu/college/alumni/outstanding-achievement-award --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_outstanding-achievement-award.md
+https://cse.umn.edu/college/alumni/upcoming-alumni-events --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_upcoming-alumni-events.md
+https://cse.umn.edu/college/alumni/update-your-contact-info --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_update-your-contact-info.md
+https://cse.umn.edu/college/career-center --> cse.umn.edu_SLASH_college_SLASH_career-center.md
+https://cse.umn.edu/college/career/jobs-and-internships --> cse.umn.edu_SLASH_college_SLASH_career_SLASH_jobs-and-internships.md
+https://cse.umn.edu/college/collegiate-life --> cse.umn.edu_SLASH_college_SLASH_collegiate-life.md
+https://cse.umn.edu/college/collegiate-life/living-learning-communities --> cse.umn.edu_SLASH_college_SLASH_collegiate-life_SLASH_living-learning-communities.md
+https://cse.umn.edu/college/collegiate-life/mentor-programs --> cse.umn.edu_SLASH_college_SLASH_collegiate-life_SLASH_mentor-programs.md
+https://cse.umn.edu/college/collegiate-life/programs-women --> cse.umn.edu_SLASH_college_SLASH_collegiate-life_SLASH_programs-women.md
+https://cse.umn.edu/college/collegiate-life/scholarships --> cse.umn.edu_SLASH_college_SLASH_collegiate-life_SLASH_scholarships.md
+https://cse.umn.edu/college/collegiate-life/student-groups --> cse.umn.edu_SLASH_college_SLASH_collegiate-life_SLASH_student-groups.md
+https://cse.umn.edu/college/collegiate-life/undergraduate-research --> cse.umn.edu_SLASH_college_SLASH_collegiate-life_SLASH_undergraduate-research.md
+https://cse.umn.edu/college/cse-alumni-society-board --> cse.umn.edu_SLASH_college_SLASH_cse-alumni-society-board.md
+https://cse.umn.edu/college/cse-career-fair --> cse.umn.edu_SLASH_college_SLASH_cse-career-fair.md
+https://cse.umn.edu/college/cse-undergraduate-commencement-ceremony --> cse.umn.edu_SLASH_college_SLASH_cse-undergraduate-commencement-ceremony.md
+https://cse.umn.edu/college/current-students --> cse.umn.edu_SLASH_college_SLASH_current-students.md
+https://cse.umn.edu/college/departments --> cse.umn.edu_SLASH_college_SLASH_departments.md
+https://cse.umn.edu/college/departments-and-majors --> cse.umn.edu_SLASH_college_SLASH_departments-and-majors.md
+https://cse.umn.edu/college/departments-and-majors/additional-degree-granting-programs --> cse.umn.edu_SLASH_college_SLASH_departments-and-majors_SLASH_additional-degree-granting-programs.md
+https://cse.umn.edu/college/departments-and-majors/graduate-programs --> cse.umn.edu_SLASH_college_SLASH_departments-and-majors_SLASH_graduate-programs.md
+https://cse.umn.edu/college/departments-and-majors/online-learning --> cse.umn.edu_SLASH_college_SLASH_departments-and-majors_SLASH_online-learning.md
+https://cse.umn.edu/college/departments-and-majors/undergraduate-majors --> cse.umn.edu_SLASH_college_SLASH_departments-and-majors_SLASH_undergraduate-majors.md
+https://cse.umn.edu/college/four-year-plans --> cse.umn.edu_SLASH_college_SLASH_four-year-plans.md
+https://cse.umn.edu/college/future-students/future-graduate-students --> cse.umn.edu_SLASH_college_SLASH_future-students_SLASH_future-graduate-students.md
+https://cse.umn.edu/college/future-students/future-international-students --> cse.umn.edu_SLASH_college_SLASH_future-students_SLASH_future-international-students.md
+https://cse.umn.edu/college/future-students/information-future-students --> cse.umn.edu_SLASH_college_SLASH_future-students_SLASH_information-future-students.md
+https://cse.umn.edu/college/give-cse --> cse.umn.edu_SLASH_college_SLASH_give-cse.md
+https://cse.umn.edu/college/giving/giving-priorities --> cse.umn.edu_SLASH_college_SLASH_giving_SLASH_giving-priorities.md
+https://cse.umn.edu/college/giving/why-give-cse --> cse.umn.edu_SLASH_college_SLASH_giving_SLASH_why-give-cse.md
+https://cse.umn.edu/college/graduate-school --> cse.umn.edu_SLASH_college_SLASH_graduate-school.md
+https://cse.umn.edu/college/hello-future-undergrad --> cse.umn.edu_SLASH_college_SLASH_hello-future-undergrad.md
+https://cse.umn.edu/college/integrated-degree-programs --> cse.umn.edu_SLASH_college_SLASH_integrated-degree-programs.md
+https://cse.umn.edu/college/interviews-and-job-offers --> cse.umn.edu_SLASH_college_SLASH_interviews-and-job-offers.md
+https://cse.umn.edu/college/learn-abroad --> cse.umn.edu_SLASH_college_SLASH_learn-abroad.md
+https://cse.umn.edu/college/major-and-career-exploration --> cse.umn.edu_SLASH_college_SLASH_major-and-career-exploration.md
+https://cse.umn.edu/college/transfer-admissions --> cse.umn.edu_SLASH_college_SLASH_transfer-admissions.md
+https://cse.umn.edu/cseit --> cse.umn.edu_SLASH_cseit.md
+https://cse.umn.edu/internationalresources --> cse.umn.edu_SLASH_internationalresources.md
+https://cse.umn.edu/inventingtomorrow --> cse.umn.edu_SLASH_inventingtomorrow.md
+https://cse.umn.edu/resumes-and-cover-letters --> cse.umn.edu_SLASH_resumes-and-cover-letters.md
+https://identitystores.com/Stores/StoreFront.aspx?StoreId=3367 --> identitystores.com_SLASH_Stores_SLASH_StoreFront.aspx?StoreId=3367.md
+https://makingagift.umn.edu/give/fund.html?ownerCode=O_TCCLG&areaCode=A_CSE1&desc_source=CWXXUMGGIVEW --> makingagift.umn.edu_SLASH_give_SLASH_fund.html?ownerCode=O_TCCLG&areaCode=A_CSE1&desc_source=CWXXUMGGIVEW.md
