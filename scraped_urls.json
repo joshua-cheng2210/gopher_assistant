@@ -1,0 +1,11 @@
+{
+  "scraped_urls": [
+    "https://cse.umn.edu/"
+  ],
+  "count": 1,
+  "last_updated": "2025-08-03T15:09:56.539372",
+  "scraper_config": {
+    "url_limit_per_website": 50,
+    "total_url_limit": 200
+  }
+}
