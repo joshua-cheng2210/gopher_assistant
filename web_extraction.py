@@ -445,13 +445,17 @@ class WebScraper:
             links = await self.scrape_website_and_extract_links(website)
             all_links.extend(links)
             
-            if len(self.scraped_urls) >= self.total_url_limit:
+            if self.num_websites_scraped > self.total_url_limit:
                 if self.verbose:
                     print(f"Reached total URL limit ({self.total_url_limit})")
+                self.pending_urls = set()  # Clear pending URLs
+                self._update_persistence_file()
                 break
         
         # Remove duplicates across all websites
         unique_links = list(set(all_links))
+
+        self._update_persistence_file()
         
         if self.verbose:
             print(f"\n✅ Total unique new links found: {len(unique_links)}")
@@ -536,7 +540,6 @@ async def main():
     """Example usage of the WebScraper class."""
     top_level_websites=["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/"]
 
-    dev_testing_website = top_level_websites[0]
     
     # Create scraper instance
     scraper = WebScraper(
@@ -551,7 +554,7 @@ async def main():
         verbose=True,
 
         # website(s) to scrape
-        top_level_websites=dev_testing_website
+        top_level_websites=top_level_websites
     )
     
     print(f"📊 Initial state:")
@@ -559,13 +562,18 @@ async def main():
     print(f"   - Pending URLs in queue: {len(scraper.pending_urls)}")
     
     # Option 1: Scrape single website
-    website = dev_testing_website
-    print(f"\n🌐 Scraping single website: {website}")
+    # dev_testing_website = top_level_websites[0]
+    # website = dev_testing_website
+    # print(f"\n🌐 Scraping single website: {website}")
     
-    links = await scraper.scrape_website_and_extract_links(website, save=1)
-    print(f"✅ Found {len(links)} new links from {website}")
-    scraper._update_persistence_file()  # Save state after single scrape
-    
+    # links = await scraper.scrape_website_and_extract_links(website, save=1)
+    # print(f"✅ Found {len(links)} new links from {website}")
+    # scraper._update_persistence_file()  # Save state after single scrape
+
+    # option 2: scrapping all top level websites
+    await scraper.scrape_all_websites()
+    scraper._update_persistence_file()
+
     # Option 2: Recursive scraping (uncomment to use)
     # print(f"\n🔄 Starting recursive scraping...")
     # summary = await scraper.scrape_recursively(max_depth=2, batch_size=5)
