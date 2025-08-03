@@ -6,6 +6,8 @@ import regex as re
 
 knowledge_directory = "knowledge_base"
 all_top_level_websites = ["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/"]
+total_url_extraction_limit = 1000
+url_extraction_limit_per_website = 100
 
 def url_to_filename(url):
     """
@@ -42,8 +44,7 @@ async def convert_HTML_2_Markdown(website):
         verbose=True,            # Detailed logging
 
         # Content
-        excluded_tags = ["small"],           # Remove entire tag blocks
-        # excluded_tags = ["small", "header", "footer"],           # Remove entire tag blocks
+        excluded_tags = ["small", "header", "footer"],           # Remove entire tag blocks
         exclude_social_media_links=True,     # Remove links to known social sites
 
         # # Page & JS
@@ -177,7 +178,7 @@ def main():
     top_level_website = all_top_level_websites[0] # For now, just use the first one
 
     asyncio.run(convert_HTML_2_Markdown(top_level_website))
-    embedded_links = extract_embeded_links(url_to_filename(top_level_website), save=1, limit=150)
+    embedded_links = extract_embeded_links(url_to_filename(top_level_website), save=1, limit=url_extraction_limit_per_website)
     print(len(embedded_links), "links found after filtering")
 
 main()

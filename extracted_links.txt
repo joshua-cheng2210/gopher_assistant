@@ -1,15 +1,9 @@
-http://admissions.tc.umn.edu/apply/index.html --> admissions.tc.umn.edu_SLASH_apply_SLASH_index.html.md
-http://admissions.tc.umn.edu/visit/index.html --> admissions.tc.umn.edu_SLASH_visit_SLASH_index.html.md
 http://advisingblog.cse.umn.edu --> advisingblog.cse.umn.edu.md
-http://campusmaps.umn.edu --> campusmaps.umn.edu.md
-http://umn.force.com/admissions/TCAdmissionsRFISignUpForm --> umn.force.com_SLASH_admissions_SLASH_TCAdmissionsRFISignUpForm.md
 https://campusmaps.umn.edu/kenneth-h-keller-hall --> campusmaps.umn.edu_SLASH_kenneth-h-keller-hall.md
 https://cse.umn.edu --> cse.umn.edu.md
 https://cse.umn.edu/DI-opportunities --> cse.umn.edu_SLASH_DI-opportunities.md
 https://cse.umn.edu/alliance --> cse.umn.edu_SLASH_alliance.md
 https://cse.umn.edu/andersonlabs --> cse.umn.edu_SLASH_andersonlabs.md
-https://cse.umn.edu/college --> cse.umn.edu_SLASH_college.md
-https://cse.umn.edu/college/about-college-science-and-engineering --> cse.umn.edu_SLASH_college_SLASH_about-college-science-and-engineering.md
 https://cse.umn.edu/college/academic-advising --> cse.umn.edu_SLASH_college_SLASH_academic-advising.md
 https://cse.umn.edu/college/academic-advising/academic-support --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_academic-support.md
 https://cse.umn.edu/college/academic-advising/appointments-and-drop-ins --> cse.umn.edu_SLASH_college_SLASH_academic-advising_SLASH_appointments-and-drop-ins.md
@@ -42,7 +36,6 @@ https://cse.umn.edu/college/alumni/nobel-laureates --> cse.umn.edu_SLASH_college
 https://cse.umn.edu/college/alumni/outstanding-achievement-award --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_outstanding-achievement-award.md
 https://cse.umn.edu/college/alumni/upcoming-alumni-events --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_upcoming-alumni-events.md
 https://cse.umn.edu/college/alumni/update-your-contact-info --> cse.umn.edu_SLASH_college_SLASH_alumni_SLASH_update-your-contact-info.md
-https://cse.umn.edu/college/award-winning-cse-faculty --> cse.umn.edu_SLASH_college_SLASH_award-winning-cse-faculty.md
 https://cse.umn.edu/college/career-center --> cse.umn.edu_SLASH_college_SLASH_career-center.md
 https://cse.umn.edu/college/career/jobs-and-internships --> cse.umn.edu_SLASH_college_SLASH_career_SLASH_jobs-and-internships.md
 https://cse.umn.edu/college/collegiate-life --> cse.umn.edu_SLASH_college_SLASH_collegiate-life.md
@@ -61,12 +54,10 @@ https://cse.umn.edu/college/cse-alumni-society-board --> cse.umn.edu_SLASH_colle
 https://cse.umn.edu/college/cse-career-fair --> cse.umn.edu_SLASH_college_SLASH_cse-career-fair.md
 https://cse.umn.edu/college/cse-committees --> cse.umn.edu_SLASH_college_SLASH_cse-committees.md
 https://cse.umn.edu/college/cse-corporate-and-foundation-relations --> cse.umn.edu_SLASH_college_SLASH_cse-corporate-and-foundation-relations.md
-https://cse.umn.edu/college/cse-directories --> cse.umn.edu_SLASH_college_SLASH_cse-directories.md
 https://cse.umn.edu/college/cse-performance-management-process --> cse.umn.edu_SLASH_college_SLASH_cse-performance-management-process.md
 https://cse.umn.edu/college/cse-policies --> cse.umn.edu_SLASH_college_SLASH_cse-policies.md
 https://cse.umn.edu/college/cse-shop --> cse.umn.edu_SLASH_college_SLASH_cse-shop.md
 https://cse.umn.edu/college/cse-undergraduate-commencement-ceremony --> cse.umn.edu_SLASH_college_SLASH_cse-undergraduate-commencement-ceremony.md
-https://cse.umn.edu/college/cse-webcam --> cse.umn.edu_SLASH_college_SLASH_cse-webcam.md
 https://cse.umn.edu/college/current-students --> cse.umn.edu_SLASH_college_SLASH_current-students.md
 https://cse.umn.edu/college/departments --> cse.umn.edu_SLASH_college_SLASH_departments.md
 https://cse.umn.edu/college/departments-and-majors --> cse.umn.edu_SLASH_college_SLASH_departments-and-majors.md
@@ -98,7 +89,6 @@ https://cse.umn.edu/college/giving/impact-giving --> cse.umn.edu_SLASH_college_S
 https://cse.umn.edu/college/giving/ways-give --> cse.umn.edu_SLASH_college_SLASH_giving_SLASH_ways-give.md
 https://cse.umn.edu/college/giving/why-give-cse --> cse.umn.edu_SLASH_college_SLASH_giving_SLASH_why-give-cse.md
 https://cse.umn.edu/college/graduate-school --> cse.umn.edu_SLASH_college_SLASH_graduate-school.md
-https://cse.umn.edu/college/graduate-student-resources --> cse.umn.edu_SLASH_college_SLASH_graduate-student-resources.md
 https://cse.umn.edu/college/hello-future-undergrad --> cse.umn.edu_SLASH_college_SLASH_hello-future-undergrad.md
 https://cse.umn.edu/college/how-do-i-pay-for-it --> cse.umn.edu_SLASH_college_SLASH_how-do-i-pay-for-it.md
 https://cse.umn.edu/college/integrated-degree-programs --> cse.umn.edu_SLASH_college_SLASH_integrated-degree-programs.md
@@ -112,7 +102,6 @@ https://cse.umn.edu/college/k-12-outreach/outreach-events --> cse.umn.edu_SLASH_
 https://cse.umn.edu/college/k-12-outreach/summer-camps --> cse.umn.edu_SLASH_college_SLASH_k-12-outreach_SLASH_summer-camps.md
 https://cse.umn.edu/college/learn-abroad --> cse.umn.edu_SLASH_college_SLASH_learn-abroad.md
 https://cse.umn.edu/college/major-and-career-exploration --> cse.umn.edu_SLASH_college_SLASH_major-and-career-exploration.md
-https://cse.umn.edu/college/news --> cse.umn.edu_SLASH_college_SLASH_news.md
 https://cse.umn.edu/college/news/college-science-and-engineering-graduate-programs-receive-high-rankings-us-news-report --> cse.umn.edu_SLASH_college_SLASH_news_SLASH_college-science-and-engineering-graduate-programs-receive-high-rankings-us-news-report.md
 https://cse.umn.edu/college/news/cse-news-feature-stories --> cse.umn.edu_SLASH_college_SLASH_news_SLASH_cse-news-feature-stories.md
 https://cse.umn.edu/college/news/undergrad-leads-smallsat-project-bound-space-station --> cse.umn.edu_SLASH_college_SLASH_news_SLASH_undergrad-leads-smallsat-project-bound-space-station.md
@@ -138,7 +127,4 @@ https://cse.umn.edu/resumes-and-cover-letters --> cse.umn.edu_SLASH_resumes-and-
 https://give.umn.edu/waystogive/matching-gifts --> give.umn.edu_SLASH_waystogive_SLASH_matching-gifts.md
 https://identitystores.com/Stores/StoreFront.aspx?StoreId=3367 --> identitystores.com_SLASH_Stores_SLASH_StoreFront.aspx?StoreId=3367.md
 https://makingagift.umn.edu/give/fund.html?ownerCode=O_TCCLG&areaCode=A_CSE1&desc_source=CWXXUMGGIVEW --> makingagift.umn.edu_SLASH_give_SLASH_fund.html?ownerCode=O_TCCLG&areaCode=A_CSE1&desc_source=CWXXUMGGIVEW.md
-https://onestop.umn.edu --> onestop.umn.edu.md
-https://twin-cities.umn.edu --> twin-cities.umn.edu.md
 https://twin-cities.umn.edu/news-events/u-m-graduate-programs-excel-latest-us-news-rankings --> twin-cities.umn.edu_SLASH_news-events_SLASH_u-m-graduate-programs-excel-latest-us-news-rankings.md
-https://www.myu.umn.edu --> myu.umn.edu.md
