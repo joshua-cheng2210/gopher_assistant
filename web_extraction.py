@@ -5,6 +5,7 @@ from crawl4ai.content_filter_strategy import PruningContentFilter
 import regex as re
 
 knowledge_directory = "knowledge_base"
+all_top_level_websites = ["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/"]
 
 def url_to_filename(url):
     """
@@ -42,6 +43,7 @@ async def convert_HTML_2_Markdown(website):
 
         # Content
         excluded_tags = ["small"],           # Remove entire tag blocks
+        # excluded_tags = ["small", "header", "footer"],           # Remove entire tag blocks
         exclude_social_media_links=True,     # Remove links to known social sites
 
         # # Page & JS
@@ -65,17 +67,26 @@ async def convert_HTML_2_Markdown(website):
     )
 
     async with AsyncWebCrawler() as crawler:
-        result = await crawler.arun(
-            website, 
-            config=config
-            )
+        try:
+            result = await crawler.arun(
+                website, 
+                config=config
+                )
+            # print("Raw Markdown length:", len(result.markdown.raw_markdown))
+            # print("Fit Markdown length:", len(result.markdown.fit_markdown))
 
-        save_file = url_to_filename(website)
+            save_file = url_to_filename(website)
+            
+            if result.success:
+                with open(save_file, "w", encoding="utf-8") as f:
+                    f.write(result.markdown)
 
-        with open(save_file, "w", encoding="utf-8") as f:
-            f.write(result.markdown)
-
-        print(f"Markdown content saved to {save_file}")
+                print(f"Markdown content saved to {save_file}")
+            else:
+                raise Exception(f"Failed to scrape {website}: !result.success, {result.error_message}")  
+        except Exception as e:
+            print(f"Error occurred while scraping {website}. Error: {e}")
+            return
 
 def filter_links(links):
     # File extensions to exclude
@@ -124,9 +135,13 @@ def extract_embeded_links(md, debug=0, save=0, limit=None):
     
     with open(md, "r", encoding="utf-8") as f:
         content = f.read()
+    
+    if content is None or content.strip() == "":
+        return []
 
     # Find all links
     links = re.findall(r'(?<=\()https?://[^\s\)"]+(?=[\s\)"])', content)
+    print(f"Found {len(links)} links in the markdown file")
 
     # edit the links
     links = [url.split("#")[0] if "#" in url else url for url in links]
@@ -134,15 +149,19 @@ def extract_embeded_links(md, debug=0, save=0, limit=None):
 
     # filtering out unwanted links
     links = filter_links(links)
-
-    if limit is not None:
-        links = links[:limit] # TODO: maybe use llm to rank the links base on relevance
+    links = [url[:-1] if url.endswith("/") else url for url in links]  # Remove trailing slashes
+    # print(f"Found {len(links)} links after filtering")
 
     # Remove duplicates and sort
     links = sorted(set(links))
-    
+    # print(f"Found {len(links)} unique links after removing duplicates")
+
+    if limit is not None:
+        links = links[:limit] # TODO: maybe use llm to rank the links base on relevance
+        # print(f"Limiting to {limit} links, total links after limit: {len(links)}")
+
     if debug:
-        print(f"Found {len(links)} links after filtering")
+        # print(f"Found {len(links)} links after filtering")
         for url in links:
             print(f"URL: {url}")
     
@@ -155,10 +174,23 @@ def extract_embeded_links(md, debug=0, save=0, limit=None):
     return links
 
 def main():
-    top_level_website = "https://cse.umn.edu/"
+    top_level_website = all_top_level_websites[0] # For now, just use the first one
 
     asyncio.run(convert_HTML_2_Markdown(top_level_website))
     embedded_links = extract_embeded_links(url_to_filename(top_level_website), save=1, limit=150)
     print(len(embedded_links), "links found after filtering")
 
 main()
+
+
+
+# prune = PruningContentFilter(threshold=0.5, threshold_type="fixed", min_word_threshold=50)
+# md_gen = DefaultMarkdownGenerator(content_filter=prune)
+
+# cfg = CrawlerRunConfig(markdown_generator=md_gen, exclude_external_links=True,
+#                        excluded_tags=["nav", "footer", "header"], word_count_threshold=20)
+
+# async with AsyncWebCrawler() as crawler:
+#     result = await crawler.arun(url="https://cse.umn.edu", config=cfg)
+#     print(result.markdown_raw[:200])
+#     print(result.markdown_fit[:200])
