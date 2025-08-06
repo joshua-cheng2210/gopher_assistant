@@ -68,10 +68,6 @@ class WebScraper:
         # In-memory sets for fast lookups
         self.scraped_urls = set()           # URLs we've already scraped
         self.pending_urls = set()           # URLs we plan to scrape
-        
-        # Load existing data
-        self._load_scraped_urls()
-        self._load_pending_urls()
 
         # Default websites to scrape
         self.top_level_websites = top_level_websites
@@ -83,6 +79,10 @@ class WebScraper:
 
         # debugging purposes
         self.verbose = verbose
+        
+        # Load existing data
+        self._load_scraped_urls()
+        self._load_pending_urls()
         
         # Filter configurations
         self.excluded_extensions = [
