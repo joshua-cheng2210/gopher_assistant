@@ -1,4 +1,3 @@
-![loader](https://ai1.ivy-cdn.com/storage/bot/3J7Z9KgqjWvYx5MEj9GVoAbQeDkXmdyN/image-5c6e6746-bc19-4931-b54a-aabd4ecfd495.jpg)
 Menu![UMN block M wordmark](https://onestop.umn.edu/themes/custom/folwell/images/branding/wordmarks/M-wordmark.png)[](https://onestop.umn.edu/#mm-0)
   * [Calendar](https://onestop.umn.edu/calendar) [Open submenu](https://onestop.umn.edu/#mm-2)
   * [Registration](https://onestop.umn.edu/registration) [Open submenu](https://onestop.umn.edu/#mm-3)
@@ -232,14 +231,6 @@ We are now sending official 2025-2026 financial aid offers. You can review and r
 [Contact us](https://onestop.umn.edu/contact)
 [Work-study](https://onestop.umn.edu/finances/types-financial-aid/work-study-and-student-employment)
 ## [Upcoming Dates](https://onestop.umn.edu/calendar/academic-calendar)
-Selected upcoming dates from the academic calendar Date | Description  
----|---  
-Tue, Aug 12, 2025 | Third [billing statement](https://onestop.umn.edu/node/136) available (due date: 8/25/25)  
-Fri, Aug 15, 2025 | Last day of instruction for 13-week summer session  
-Mon, Aug 25, 2025 | Summer [payment due](https://onestop.umn.edu/node/141) in full  
-Mon, Sep 1, 2025 | September [graduation application](https://onestop.umn.edu/node/376) deadline for graduate and professional students (monthly clearances only)  
-Mon, Sep 1, 2025 | University closed (Labor Day)  
-Tue, Sep 2, 2025 | Start of fall full semester and first 7-week sessions  
 ## Featured content
 ### American Indian Scholars Program
 The American Indian Scholars Program was established in the 2023 Minnesota Legislative Session. This program is designed to cover tuition and certain fees for eligible Minnesota American Indian students to complete an undergraduate education.
@@ -252,5 +243,3 @@ The University has emergency funds available to help students who encounter an u
 [Go to Schedule Builder](https://schedulebuilder.umn.edu/)
 Back to top
 [Close menu](https://onestop.umn.edu/#mm-0)
-|   
----|---

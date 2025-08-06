@@ -17,6 +17,7 @@ class WebScraper:
                  top_level_websites=["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/"],
                  total_url_limit=1000,
                  url_limit_per_website=100,
+                 batch_processing=10,
                  verbose=True,
                  ):
         """
@@ -76,6 +77,7 @@ class WebScraper:
         self.total_url_limit = total_url_limit
         self.url_limit_per_website = url_limit_per_website
         self.num_websites_scraped = 0 # TODO: update this number on change on self.scraped_urls
+        self.batch_processing = batch_processing
 
         # debugging purposes
         self.verbose = verbose
@@ -83,6 +85,7 @@ class WebScraper:
         # Load existing data
         self._load_scraped_urls()
         self._load_pending_urls()
+        self.add_urls_to_queue(self.top_level_websites) 
         
         # Filter configurations
         self.excluded_extensions = [
@@ -114,6 +117,7 @@ class WebScraper:
                 with open(self.scraped_urls_file, 'r') as f:
                     data = json.load(f)
                     self.scraped_urls = set(data.get('scraped_urls', []))
+                    self.num_websites_scraped = len(self.scraped_urls)
                     if self.verbose:
                         print(f"✓ Loaded {len(self.scraped_urls)} previously scraped URLs")
             except Exception as e:
@@ -171,9 +175,6 @@ class WebScraper:
             self.pending_urls.update(new_urls)
             self._save_pending_urls()  # Persist immediately
             
-            if self.verbose:
-                print(f"✓ Added {len(new_urls)} new URLs to queue")
-        
         return new_urls
 
     def mark_url_as_scraped(self, url):
@@ -183,9 +184,7 @@ class WebScraper:
 
         self.num_websites_scraped = len(self.scraped_urls)  # Update count
 
-        # Save periodically (not on every URL to avoid I/O overhead)
-        if len(self.scraped_urls) % 10 == 0:  # Save every 10 URLs
-            self._save_scraped_urls()
+        self._save_scraped_urls()
 
     def is_url_scraped(self, url):
         """Fast O(1) check if URL has been scraped."""
@@ -222,72 +221,6 @@ class WebScraper:
         name = filename.replace('.md', '')
         url_part = name.replace('_SLASH_', '/')
         return f"https://{url_part}"
-
-    async def convert_HTML_2_Markdown(self, website, save=0):
-        """
-        Scrape a website and convert it to markdown format.
-        
-        Args:
-            website: URL of the website to scrape
-            
-        Returns:
-            Path to the saved markdown file or None if failed
-        """
-        # TODO: update the class variable on success
-        config = CrawlerRunConfig(
-            markdown_generator = DefaultMarkdownGenerator(),
-            # Core
-            verbose=self.verbose,            # Detailed logging
-
-            # Content
-            excluded_tags = ["small", "header", "footer"],           # Remove entire tag blocks
-            exclude_social_media_links=True,     # Remove links to known social sites
-
-            # # Page & JS
-            # js_code="document.querySelector('.show-more')?.click();",
-            # wait_for="css:.loaded-block",
-            # page_timeout=30000,
-
-            # # Extraction
-            # extraction_strategy=JsonCssExtractionStrategy(schema),
-
-            # # Session
-            # session_id="persistent_session",
-
-            # # Media
-            # screenshot=True,
-            # pdf=True,
-
-            # # Anti-bot
-            # simulate_user=True,
-            # magic=True,
-        )
-
-        async with AsyncWebCrawler() as crawler:
-            try:
-                result = await crawler.arun(
-                    website, 
-                    config=config
-                    )
-                # print("Raw Markdown length:", len(result.markdown.raw_markdown))
-                # print("Fit Markdown length:", len(result.markdown.fit_markdown))
-
-                
-                if result.success:
-                    save_file = self.url_to_filename(website)
-                    filepath = self.knowledge_directory / save_file
-                    if save == 1:
-                        with open(filepath, "w", encoding="utf-8") as f:
-                            f.write(result.markdown)
-
-                    if self.verbose:
-                        print(f"✓ Markdown content saved to {filepath}")
-                    return filepath, result.markdown
-                else:
-                    raise Exception(f"Failed to scrape {website}: !result.success, {result.error_message}")  
-            except Exception as e:
-                print(f"✗ Error occurred while scraping {website}. Error: {e}")
-                return None, None
 
     def filter_links(self, links):
         """Filter out unwanted links based on configured criteria."""
@@ -346,8 +279,8 @@ class WebScraper:
 
         # Find all links
         links = re.findall(r'(?<=\()https?://[^\s\)"]+(?=[\s\)"])', md)
-        if self.verbose:
-            print(f"Found {len(links)} links in the markdown file")
+        # if self.verbose:
+        #     print(f"Found {len(links)} links in the markdown file")
 
         # edit the links
         links = [url.split("#")[0] if "#" in url else url for url in links]
@@ -361,19 +294,10 @@ class WebScraper:
         # links = sorted(links)
         links = list(set(links))
 
-        
-
         if debug:
             for url in links:
                 print(f"URL: {url}")
         
-        # Don't save to file by default anymore - use sets for tracking
-        # if save:
-        #     with open("extracted_links.txt", "w", encoding="utf-8") as f:
-        #         for url in links:
-        #             line = f"{url} --> {self.url_to_filename(url)}\n"
-        #             f.write(line)  # Use write() instead of writelines()
-
         return links
 
     async def scrape_website_and_extract_links(self, website, save=0):
@@ -391,8 +315,8 @@ class WebScraper:
             if self.verbose:
                 print(f"🛑 Reached total URL limit ({self.total_url_limit})")
             
-            self.pending_urls = set()  
             self._update_persistence_file()
+            self.pending_urls = set()  
             return []
         
         # Check if already scraped
@@ -434,111 +358,171 @@ class WebScraper:
 
         return list(new_links)
 
-    async def scrape_all_websites(self):
-        """Scrape all configured top-level websites."""
-        all_links = []
-        
-        for website in self.top_level_websites:
-            if self.verbose:
-                print(f"\n🌐 Scraping: {website}")
-            
-            links = await self.scrape_website_and_extract_links(website)
-            all_links.extend(links)
-            
-            if self.num_websites_scraped > self.total_url_limit:
-                if self.verbose:
-                    print(f"Reached total URL limit ({self.total_url_limit})")
-                self.pending_urls = set()  # Clear pending URLs
-                self._update_persistence_file()
-                break
-        
-        # Remove duplicates across all websites
-        unique_links = list(set(all_links))
-
-        self._update_persistence_file()
-        
-        if self.verbose:
-            print(f"\n✅ Total unique new links found: {len(unique_links)}")
-            print(f"📊 Total scraped URLs: {len(self.scraped_urls)}")
-            print(f"📊 Pending URLs in queue: {len(self.pending_urls)}")
-        
-        return unique_links
-
-    async def scrape_recursively(self, max_depth=3, batch_size=10):
+    async def convert_HTMLs_2_Markdown(self, websites, save=0):
         """
-        Scrape recursively using the queue system.
+        Scrape a website and convert it to markdown format.
         
         Args:
-            max_depth: Maximum depth levels to scrape
-            batch_size: Number of URLs to process in each batch
+            website: URL of the website to scrape
             
         Returns:
-            Summary statistics
+            Path to the saved markdown file or None if failed
         """
-        if self.verbose:
-            print(f"🚀 Starting recursive scraping (max_depth={max_depth}, batch_size={batch_size})")
-        
-        # Start with top-level websites if nothing in queue
-        if not self.pending_urls:
-            self.add_urls_to_queue(self.top_level_websites)
-        
-        for depth in range(max_depth):
-            if self.verbose:
-                print(f"\n🔄 Starting depth {depth + 1}/{max_depth}")
-            
-            # Get next batch of URLs to scrape
-            batch = self.get_next_urls_to_scrape(batch_size)
-            
-            if not batch:
-                if self.verbose:
-                    print("✅ No more URLs to scrape")
-                break
-            
-            if self.verbose:
-                print(f"📦 Processing batch of {len(batch)} URLs")
-            
-            # Process batch
-            for url in batch:
-                try:
-                    # Check total limit
-                    if len(self.scraped_urls) >= self.total_url_limit:
+        # TODO: update the class variable on success
+        config = CrawlerRunConfig(
+            markdown_generator = DefaultMarkdownGenerator(),
+            # Core
+            verbose=self.verbose,            # Detailed logging
+
+            # Content
+            excluded_tags = ["small", "header", "footer"],           # Remove entire tag blocks
+            exclude_social_media_links=True,     # Remove links to known social sites
+
+            # # Page & JS
+            # js_code="document.querySelector('.show-more')?.click();",
+            # wait_for="css:.loaded-block",
+            # page_timeout=30000,
+
+            # # Extraction
+            # extraction_strategy=JsonCssExtractionStrategy(schema),
+
+            # # Session
+            # session_id="persistent_session",
+
+            # # Media
+            # screenshot=True,
+            # pdf=True,
+
+            # # Anti-bot
+            # simulate_user=True,
+            # magic=True,
+        )
+
+        async with AsyncWebCrawler() as crawler:
+            try:
+                results = await crawler.arun_many(
+                    urls=list(websites), 
+                    config=config
+                    )
+                # print("Raw Markdown length:", len(result.markdown.raw_markdown))
+                # print("Fit Markdown length:", len(result.markdown.fit_markdown))
+
+                # print(results)
+                results_data = []
+                for result in results:
+                    website = result.url  
+                    if result.success:
+                        save_file = self.url_to_filename(website)
+                        filepath = self.knowledge_directory / save_file
+                        if save == 1:
+                            with open(filepath, "w", encoding="utf-8") as f:
+                                f.write(result.markdown)
+
                         if self.verbose:
-                            print(f"🛑 Reached total URL limit ({self.total_url_limit})")
-                        break
-                        
-                    await self.scrape_website_and_extract_links(url)
-                except Exception as e:
-                    print(f"❌ Error scraping {url}: {e}")
-                    # Still mark as scraped to avoid retrying
-                    self.mark_url_as_scraped(url)
+                            print(f"✓ Markdown content saved to {filepath}")
+                        results_data.append([website, result.markdown])
+                    else:
+                        raise Exception(f"Failed to scrape {website}: !result.success, {result.error_message}")  
+            except Exception as e:
+                print(f"✗ Error occurred while scraping {website}. Error: {e}")
+                return []
             
+        return results_data
+
+    async def scrape_websites_and_extract_links(self, websites, save=0):
+        """
+        Scrape a website and extract its embedded links.
+        
+        Args:
+            website: URL of the website to scrape
+            extract_limit: Maximum number of links to extract (uses instance limit if None)
+            
+        Returns:
+            List of new URLs found (not previously scraped)
+        """
+        if self.num_websites_scraped >= self.total_url_limit:
             if self.verbose:
-                print(f"📊 Status: {len(self.scraped_urls)} scraped, {len(self.pending_urls)} pending")
+                print(f"🛑 Reached total URL limit ({self.total_url_limit})")
             
-            # Break if we hit the limit
-            if len(self.scraped_urls) >= self.total_url_limit:
-                break
+            self._update_persistence_file()
+            self.pending_urls = set()  
+            return []
         
-        # Final save
-        self._save_scraped_urls()
-        self._save_pending_urls()
+        # Check if already scraped
+        websites = [url for url in websites if url not in self.scraped_urls and url not in self.pending_urls]
         
-        summary = {
-            'total_scraped': len(self.scraped_urls),
-            'pending_urls': len(self.pending_urls),
-            'max_depth_reached': depth + 1
-        }
+        # First scrape the website
+        results_data = await self.convert_HTMLs_2_Markdown(websites, save=save)
+
+        # TODO: convert the markdown into vectors here
+        # TODO: store the vectors embedding into a db here
+               
+        # Then extract links from the markdown
+        completed_website = []
+        for result in results_data:
+            website, markdown = result
+            links = self.extract_embedded_links(
+                md=markdown,
+                debug=0,
+            )
+        
+            # for persistence
+            self.mark_url_as_scraped(website)
+            new_links = self.add_urls_to_queue(links)
+
+            completed_website.append(website)
+        
+            if self.verbose:
+                print(f"✓ Scraped {website}: found {len(links)} links, {len(new_links)} new")
+        
+        if len(self.pending_urls) == 0:
+            self._update_persistence_file()
+        
+        return completed_website
+
+    async def batch_scrape_and_extract_links(self, websites, save=0):
+        """
+        Scrape a list of websites in batches and extract their embedded links.
+        
+        Args:
+            websites: List of website URLs to scrape
+            save: Whether to save the markdown files (1 to save, 0 otherwise)
+        """
+        if self.num_websites_scraped > self.total_url_limit:
+            if self.verbose:
+                print(f"🛑 Reached total URL limit ({self.total_url_limit})")
+            
+            self._update_persistence_file()
+            self.pending_urls = set()  
+            return []
+        
+        completed_website = []
+        for i in range(0, len(websites), self.batch_processing):
+            batch = websites[i:i + self.batch_processing]
+            batch = [url for url in batch if url not in self.scraped_urls]
+            
+            if len(batch) > self.total_url_limit - self.num_websites_scraped:
+                batch = batch[:self.total_url_limit - self.num_websites_scraped]
+
+            if self.verbose:
+                print(f"\n🌐 Scraping: {batch}")
+
+            websites = await self.scrape_websites_and_extract_links(websites=batch)
+            completed_website.extend(websites)
+            self._update_persistence_file()
         
         if self.verbose:
-            print(f"\n🎉 Recursive scraping complete!")
-            print(f"📊 Final stats: {summary}")
-        
-        return summary
+            print(f"\n✅ Completed batch scraping {len(completed_website)} websites.")
+
+        return completed_website
+
+    async def next_level_batch_scrape_and_extract_links(self, websites, save=0):
+        return None
 
 
 async def main():
     """Example usage of the WebScraper class."""
-    top_level_websites=["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/"]
+    top_level_websites=["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/", "https://cse.umn.edu/college/future-students/orientation"]
 
     
     # Create scraper instance
@@ -549,8 +533,9 @@ async def main():
         links_queue_file="links_queue.json",
 
         # limits argument
-        url_limit_per_website=50,  # Reduced for faster testing
-        total_url_limit=200,       # Reduced for faster testing
+        url_limit_per_website=150,  # Reduced for faster testing
+        total_url_limit=500,       # Reduced for faster testing
+        batch_processing=10,
         verbose=True,
 
         # website(s) to scrape
@@ -571,8 +556,14 @@ async def main():
     # scraper._update_persistence_file()  # Save state after single scrape
 
     # option 2: scrapping all top level websites
-    await scraper.scrape_all_websites()
-    scraper._update_persistence_file()
+    # await scraper.scrape_all_websites()
+    # scraper._update_persistence_file()
+
+    # option 3: using batch arun_many()
+    await scraper.batch_scrape_and_extract_links(
+        websites=scraper.top_level_websites,
+        save=1
+    )
 
     # Option 2: Recursive scraping (uncomment to use)
     # print(f"\n🔄 Starting recursive scraping...")

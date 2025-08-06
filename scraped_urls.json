@@ -1,13 +1,14 @@
 {
   "scraped_urls": [
     "https://cse.umn.edu/",
+    "https://cse.umn.edu/college/future-students/orientation",
     "https://ote.umn.edu/",
     "https://onestop.umn.edu/"
   ],
-  "count": 3,
-  "last_updated": "2025-08-05T20:36:54.472668",
+  "count": 4,
+  "last_updated": "2025-08-05T22:10:36.512999",
   "scraper_config": {
-    "url_limit_per_website": 50,
-    "total_url_limit": 200
+    "url_limit_per_website": 150,
+    "total_url_limit": 500
   }
 }

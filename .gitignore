@@ -1,1 +1,4 @@
 .env
+knowledge_base
+links_queue.json
+scraped_urls.json
