@@ -418,8 +418,8 @@ class WebScraper:
                             with open(filepath, "w", encoding="utf-8") as f:
                                 f.write(result.markdown)
 
-                        if self.verbose:
-                            print(f"✓ Markdown content saved to {filepath}")
+                            if self.verbose:
+                                print(f"✓ Markdown content saved to {filepath}")
                         results_data.append([website, result.markdown])
                     else:
                         raise Exception(f"Failed to scrape {website}: !result.success, {result.error_message}")  
@@ -449,7 +449,7 @@ class WebScraper:
             return []
         
         # Check if already scraped
-        websites = [url for url in websites if url not in self.scraped_urls and url not in self.pending_urls]
+        websites = [url for url in websites if url not in self.scraped_urls]
         
         # First scrape the website
         results_data = await self.convert_HTMLs_2_Markdown(websites, save=save)
@@ -516,8 +516,19 @@ class WebScraper:
 
         return completed_website
 
-    async def next_level_batch_scrape_and_extract_links(self, websites, save=0):
-        return None
+    async def next_level_batch_scrape_and_extract_links(self, levels=1, save=0):
+        for i in range(levels):
+            level_websites = list(self.pending_urls)[:self.total_url_limit - self.num_websites_scraped]
+            if self.verbose:
+                print(f"\n🌐 Processing and Scraping next level {i+1} websites")
+                if not level_websites:
+                    print(f"🛑 No more pending URLs to scrape at level {i+1}")
+                    break
+            await self.batch_scrape_and_extract_links(
+                websites=level_websites,
+                save=save
+            )
+            self._update_persistence_file()
 
 
 async def main():
@@ -533,7 +544,7 @@ async def main():
         links_queue_file="links_queue.json",
 
         # limits argument
-        url_limit_per_website=150,  # Reduced for faster testing
+        url_limit_per_website=100,  # Reduced for faster testing
         total_url_limit=500,       # Reduced for faster testing
         batch_processing=10,
         verbose=True,
@@ -565,13 +576,11 @@ async def main():
         save=1
     )
 
-    # Option 2: Recursive scraping (uncomment to use)
-    # print(f"\n🔄 Starting recursive scraping...")
-    # summary = await scraper.scrape_recursively(max_depth=2, batch_size=5)
-    
-    # Option 3: Scrape all configured websites (alternative approach)
-    # print("\n🌐 Scraping all configured websites...")
-    # all_links = await scraper.scrape_all_websites()
+    # Option 4: scrapping next level links
+    # await scraper.next_level_batch_scrape_and_extract_links(
+    #     levels=2,  # Change this to scrape deeper levels
+    #     save=1
+    # )
 
 
 if __name__ == "__main__":
