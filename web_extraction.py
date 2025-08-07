@@ -1,7 +1,7 @@
 import asyncio
 from crawl4ai import AsyncWebCrawler, CrawlerRunConfig
 from crawl4ai.markdown_generation_strategy import DefaultMarkdownGenerator
-from crawl4ai.content_filter_strategy import PruningContentFilter
+# from crawl4ai.content_filter_strategy import PruningContentFilter
 import regex as re
 from pathlib import Path
 import json
@@ -553,10 +553,27 @@ class WebScraper:
             )
             self._update_persistence_file()
 
+# Topic questions to ask this assistant
+# - Housing dorms
+# - Orientation
+# - Cse
+# - Clubs
+# - One stop quick information
+# - Engineering degree 4 year plan
+
 
 async def main():
     """Example usage of the WebScraper class."""
-    top_level_websites=["https://cse.umn.edu/", "https://ote.umn.edu/", "https://onestop.umn.edu/", "https://cse.umn.edu/college/future-students/orientation"]
+    top_level_websites=[
+        "https://cse.umn.edu/", 
+        "https://ote.umn.edu/", 
+        "https://onestop.umn.edu/", 
+        "https://cse.umn.edu/college/future-students/orientation",
+        "https://housing.umn.edu/live-here/neighborhoods/options",
+        "https://housing.umn.edu/live",
+        "https://cse.umn.edu/college/four-year-plans",
+        "https://cse.umn.edu/college/departments-and-majors/undergraduate-majors"
+        ]
 
     
     # Create scraper instance
