@@ -168,13 +168,33 @@ class WebScraper:
         self._save_pending_urls()
 
     def add_urls_to_queue(self, urls):
-        """Add new URLs to the scraping queue (if not already scraped)."""
+        # Calculate current capacity
+        total_capacity = self.total_url_limit
+        currently_processing = len(self.scraped_urls) + len(self.pending_urls)
+        remaining_capacity = total_capacity - currently_processing
+        
+        if remaining_capacity <= 0:
+            if self.verbose:
+                print(f"🛑 Queue full! {currently_processing}/{total_capacity} URLs")
+            return set()
+        
+        # Filter out already known URLs
         new_urls = set(urls) - self.scraped_urls - self.pending_urls
+        
+        # Limit to remaining capacity
+        if len(new_urls) > remaining_capacity:
+            new_urls = set(list(new_urls)[:remaining_capacity])
+            if self.verbose:
+                print(f"⚠ Limited new URLs to {len(new_urls)} (capacity: {remaining_capacity})")
         
         if new_urls:
             self.pending_urls.update(new_urls)
-            self._save_pending_urls()  # Persist immediately
+            self._save_pending_urls()
             
+            if self.verbose:
+                total_now = len(self.scraped_urls) + len(self.pending_urls)
+                print(f"✓ Added {len(new_urls)} URLs. Total: {total_now}/{self.total_url_limit}")
+        
         return new_urls
 
     def mark_url_as_scraped(self, url):
@@ -506,13 +526,16 @@ class WebScraper:
 
             if self.verbose:
                 print(f"\n🌐 Scraping: {batch}")
-
-            websites = await self.scrape_websites_and_extract_links(websites=batch)
-            completed_website.extend(websites)
-            self._update_persistence_file()
+            
+            count = 0
+            if batch:
+                completed_websites = await self.scrape_websites_and_extract_links(websites=batch)
+                count += len(completed_websites)
+                # completed_website.extend(completed_websites)
+                self._update_persistence_file()
         
         if self.verbose:
-            print(f"\n✅ Completed batch scraping {len(completed_website)} websites.")
+            print(f"\n✅ Completed batch scraping {count} websites.")
 
         return completed_website
 
@@ -546,7 +569,7 @@ async def main():
         # limits argument
         url_limit_per_website=100,  # Reduced for faster testing
         total_url_limit=500,       # Reduced for faster testing
-        batch_processing=10,
+        batch_processing=25,
         verbose=True,
 
         # website(s) to scrape
@@ -571,16 +594,16 @@ async def main():
     # scraper._update_persistence_file()
 
     # option 3: using batch arun_many()
-    await scraper.batch_scrape_and_extract_links(
-        websites=scraper.top_level_websites,
-        save=1
-    )
-
-    # Option 4: scrapping next level links
-    # await scraper.next_level_batch_scrape_and_extract_links(
-    #     levels=2,  # Change this to scrape deeper levels
+    # await scraper.batch_scrape_and_extract_links(
+    #     websites=scraper.top_level_websites,
     #     save=1
     # )
+
+    # Option 4: scrapping next level links
+    await scraper.next_level_batch_scrape_and_extract_links(
+        levels=2,  # Change this to scrape deeper levels
+        save=1
+    )
 
 
 if __name__ == "__main__":
